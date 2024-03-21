@@ -1,7 +1,5 @@
-package FMOS_2002;
-
 /**
- Represents a FMOS_2002.MenuItem
+ Represents a MenuItem
  @author Scott Cheng
  @version 1.0
  @since 2024-03-22
@@ -10,7 +8,7 @@ package FMOS_2002;
 public class MenuItem {
 
     /**
-     * FMOS_2002.MenuItem category
+     * MenuItem category
      */
     public enum CATEGORIES {
         SIDE,

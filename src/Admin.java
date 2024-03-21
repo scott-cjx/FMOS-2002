@@ -1,8 +1,6 @@
-package FMOS_2002;
-
 /**
- Represents an FMOS_2002.Admin, staff
- FMOS_2002.Admin is responsible for company management and staff management.
+ Represents an Admin, staff
+ Admin is responsible for company management and staff management.
  @author Scott Cheng
  @version 1.0
  @since 2024-03-22

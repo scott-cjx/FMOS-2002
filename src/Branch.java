@@ -1,7 +1,5 @@
-package FMOS_2002;
-
 /**
- Represents a FMOS_2002.Branch
+ Represents a Branch
  @author Scott Cheng
  @version 1.0
  @since 2024-03-22

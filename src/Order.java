@@ -1,7 +1,5 @@
-package FMOS_2002;
-
 /**
- Represents an FMOS_2002.Order
+ Represents an Order
  @author Scott Cheng
  @version 1.0
  @since 2024-03-22
@@ -9,7 +7,7 @@ package FMOS_2002;
 
 public class Order {
     /**
-     * FMOS_2002.Order Status
+     * Order Status
      */
     public enum ORDER_STATUS {
         IN_PROGRESS,
@@ -19,7 +17,7 @@ public class Order {
     };
 
     /**
-     * FMOS_2002.Order Type
+     * Order Type
      */
     public enum ORDER_TYPE {
         TAKEOUT,

@@ -1,7 +1,5 @@
-package FMOS_2002;
-
 /**
- Represents a FMOS_2002.User
+ Represents a User
  There are different types of Users
  @author Scott Cheng
  @version 1.0
