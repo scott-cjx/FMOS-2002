@@ -1,4 +1,14 @@
+/**
+ Represents an Order
+ @author Scott Cheng
+ @version 1.0
+ @since 2024-03-22
+ */
+
 public class Order {
+    /**
+     * Order Status
+     */
     public enum ORDER_STATUS {
         IN_PROGRESS,
         READY_TO_PICKUP,
@@ -6,6 +16,9 @@ public class Order {
         NA
     };
 
+    /**
+     * Order Type
+     */
     public enum ORDER_TYPE {
         TAKEOUT,
         DINE_IN,

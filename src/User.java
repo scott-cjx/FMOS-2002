@@ -1,4 +1,15 @@
+/**
+ Represents a User
+ There are different types of Users
+ @author Scott Cheng
+ @version 1.0
+ @since 2024-03-22
+ */
+
 public class User {
+    /**
+     * Gender of user
+     */
     public enum GENDER {
         MALE,
         FEMALE,

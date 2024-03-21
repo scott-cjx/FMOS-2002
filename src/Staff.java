@@ -1,4 +1,16 @@
+/**
+ Represents a Staff
+ There are different types of Staff
+ @author Scott Cheng
+ @version 1.0
+ @since 2024-03-22
+ */
+
+
 public class Staff extends User {
+    /**
+     * Type of Staff
+     */
     public enum STAFF_TYPE {
         ADMIN('A'), BRANCH_MANAGER('B'), STAFF('S'), NA('N');
 
@@ -15,6 +27,10 @@ public class Staff extends User {
     private STAFF_TYPE staffType = STAFF_TYPE.NA;
     private String password = "password";
     private String staffLoginID;
+
+    /**
+     * branch this Staff belongs to
+     */
     private Branch branch;
 
 //    THIS SHOULD BE DISABLED
@@ -62,6 +78,10 @@ public class Staff extends User {
 
     public Branch getBranch() {
         return branch;
+    }
+
+    public void setBranch(Branch branch) {
+        this.branch = branch;
     }
 
     public STAFF_TYPE getStaffType() {

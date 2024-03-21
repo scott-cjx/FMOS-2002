@@ -1,4 +1,15 @@
+/**
+ Represents a MenuItem
+ @author Scott Cheng
+ @version 1.0
+ @since 2024-03-22
+ */
+
 public class MenuItem {
+
+    /**
+     * MenuItem category
+     */
     public enum CATEGORIES {
         SIDE,
         DRINK,
@@ -6,6 +17,9 @@ public class MenuItem {
         NA
     }
 
+    /**
+     * is item available?
+     */
     public enum AVAILABILITY {
         AVAILABLE,
         NOT_AVAILABLE,

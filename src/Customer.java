@@ -1,3 +1,10 @@
+/**
+ Represents a Customer.
+ @author Scott Cheng
+ @version 1.0
+ @since 2024-03-22
+ */
+
 public class Customer extends User {
 
     public Customer() {super();}
@@ -6,6 +13,11 @@ public class Customer extends User {
         super(gender, age, name);
     }
 
+    /**
+     * complete order if it is able to be picked up
+     * @param order
+     * @return is order successfully processed by customer
+     */
     boolean processOrder(Order order) {
 //        check first, if not ready, how to complete
         if (order.getOrderStatus() != Order.ORDER_STATUS.READY_TO_PICKUP) return false;
@@ -14,6 +26,7 @@ public class Customer extends User {
         return true;
     }
 
+//    todo
     boolean removeFromCart(MenuItem menuItem) {
         return false;
     }

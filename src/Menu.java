@@ -1,4 +1,9 @@
-import java.lang.String;
+/**
+ The main CLI interface handler
+ @author Scott Cheng
+ @version 1.0
+ @since 2024-03-22
+ */
 
 public class Menu {
     public static final int MAX_WIDTH_PRINT = 64;
@@ -9,6 +14,9 @@ public class Menu {
     private static Staff currentStaff;
     private static boolean isStaff = false;
 
+    /**
+     * fixed states of menus
+     */
     public enum MENUS {
         MAIN,
         LOGIN,
