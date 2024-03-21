@@ -1,5 +1,7 @@
+package FMOS_2002;
+
 /**
- Represents a Customer.
+ Represents a FMOS_2002.Customer.
  @author Scott Cheng
  @version 1.0
  @since 2024-03-22

@@ -1,6 +1,8 @@
+package FMOS_2002;
+
 /**
- Represents a Staff
- There are different types of Staff
+ Represents a FMOS_2002.Staff
+ There are different types of FMOS_2002.Staff
  @author Scott Cheng
  @version 1.0
  @since 2024-03-22
@@ -9,7 +11,7 @@
 
 public class Staff extends User {
     /**
-     * Type of Staff
+     * Type of FMOS_2002.Staff
      */
     public enum STAFF_TYPE {
         ADMIN('A'), BRANCH_MANAGER('B'), STAFF('S'), NA('N');
@@ -29,15 +31,15 @@ public class Staff extends User {
     private String staffLoginID;
 
     /**
-     * branch this Staff belongs to
+     * branch this FMOS_2002.Staff belongs to
      */
     private Branch branch;
 
 //    THIS SHOULD BE DISABLED
-//    public Staff() {
+//    public FMOS_2002.Staff() {
 //    }
 
-//    public Staff(STAFF_TYPE staffType, String password) {
+//    public FMOS_2002.Staff(STAFF_TYPE staffType, String password) {
 //        super();
 //        this.staffType = staffType;
 //        this.password = password;

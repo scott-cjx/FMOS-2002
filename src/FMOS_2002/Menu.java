@@ -5,6 +5,8 @@
  @since 2024-03-22
  */
 
+package FMOS_2002;
+
 public class Menu {
     public static final int MAX_WIDTH_PRINT = 64;
     public static final int HEADER_FRONT_WIDTH = 5;
@@ -45,7 +47,7 @@ public class Menu {
 
         System.out.print(currentStaff.getStaffType().name());
 
-//        if (currentStaff.getStaffType() != Staff.STAFF_TYPE.ADMIN) {
+//        if (currentStaff.getStaffType() != FMOS_2002.Staff.STAFF_TYPE.ADMIN) {
 //            System.out.print(" @ ");
 //            System.out.println(currentStaff.getBranch().getBranchName());
 //            return;

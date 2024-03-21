@@ -1,6 +1,8 @@
+package FMOS_2002;
+
 /**
- Represents a BranchManager.
- BranchManager manages menu items.
+ Represents a FMOS_2002.BranchManager.
+ FMOS_2002.BranchManager manages menu items.
  @author Scott Cheng
  @version 1.0
  @since 2024-03-22
@@ -8,7 +10,7 @@
 
 public class BranchManager extends Staff {
 
-//    Staff[] staffs;
+//    FMOS_2002.Staff[] staffs;
 //    ^ Technically staff can be accessed via this.branch.getStaffs();
 
     /**
@@ -26,7 +28,7 @@ public class BranchManager extends Staff {
      * displays staff in branch manager's branch
      */
     void displayStaffList() {
-//        maybe call it from Branch?
+//        maybe call it from FMOS_2002.Branch?
 //        but is it all managers in branch handle all the staff OR
 //        individual manager to their staff
         this.branch.displayStaffs();
