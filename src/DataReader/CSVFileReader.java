@@ -11,7 +11,6 @@ import java.util.StringTokenizer;
 
 public class CSVFileReader {
 	protected static final String SEPARATOR = ",";
-
     protected static final String MENUFILE = "menu.csv";
     protected static final String STAFFFILE = "staff_list.csv";
 

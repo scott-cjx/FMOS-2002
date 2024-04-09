@@ -14,42 +14,46 @@ public class BranchListDB extends CSVFileReader {
 	protected static final String filename = "Database/branch_list.csv";
 
     // an example of reading
-	public static ArrayList readAllBranch() throws IOException {
+	public static ArrayList<BranchData> readAllBranch() throws IOException {
+
 		// read String from text file
-		ArrayList stringArray = (ArrayList)read(filename);
-		ArrayList alr = new ArrayList() ;// to store branch data
+		ArrayList stringArray = (ArrayList) read(filename);
+		ArrayList alr = new ArrayList();// to store branch data
 
         for (int i = 0 ; i < stringArray.size() ; i++) {
-				String st = (String)stringArray.get(i);
-				// get individual 'fields' of the string separated by SEPARATOR
-				StringTokenizer star = new StringTokenizer(st , SEPARATOR);	// pass in the string to the string tokenizer using delimiter ","
+			String st = (String)stringArray.get(i);
+			// get individual 'fields' of the string separated by SEPARATOR
+			StringTokenizer star = new StringTokenizer(st , SEPARATOR);	// pass in the string to the string tokenizer using delimiter ","
 
-				String  name = star.nextToken().trim();	// first token
-				String  location = star.nextToken().trim();	// second token
-				int  staffQuota = Integer.parseInt(star.nextToken().trim()); // third token
-				// create Branch object from file data
-				BranchData branchData = new BranchData(name, location, staffQuota);
-				alr.add(branchData) ;
-			}
-			return alr ;
+			/* Extract Tokens */
+			String name = star.nextToken().trim(); // first token
+			String location = star.nextToken().trim(); // second token
+			int staffQuota = Integer.parseInt(star.nextToken().trim());	// third token
+
+			/* Create BranchData object and pass to alr */
+			BranchData branchData = new BranchData(name, location, staffQuota);
+			alr.add(branchData);
+		}
+
+		return alr;
 	}
 
     // an example of saving
     public static void saveBranch(List al) throws IOException {
-		List alw = new ArrayList() ;// to store branch data
+		List alw = new ArrayList();// to store branch data
 
 		alw.add("Name,Location,Staff Quota");
         for (int i = 0 ; i < al.size() ; i++) {
-				BranchData branchData = (BranchData)al.get(i);
-				StringBuilder st =  new StringBuilder() ;
-				st.append(branchData.name.trim());
-				st.append(SEPARATOR);
-				st.append(branchData.location.trim());
-				st.append(SEPARATOR);
-				st.append(branchData.staffQuota);
-				alw.add(st.toString()) ;
-			}
-			CSVFileReader.write(filename,alw);
+			BranchData branchData = (BranchData)al.get(i);
+			StringBuilder st =  new StringBuilder();
+			st.append(branchData.name.trim());
+			st.append(SEPARATOR);
+			st.append(branchData.location.trim());
+			st.append(SEPARATOR);
+			st.append(branchData.staffQuota);
+			alw.add(st.toString());
+		}
+		CSVFileReader.write(filename,alw);
 	}
 
 	public static void printAllBranch() throws IOException {
@@ -62,7 +66,7 @@ public class BranchListDB extends CSVFileReader {
                 System.out.print("\tLocation: " + branchData.location );
 				System.out.println("\tStaff Quota: " + branchData.staffQuota );
 			}
-		}catch (IOException e) {
+		} catch (IOException e) {
 			System.out.println("IOException > " + e.getMessage());
 		}
 	}
@@ -76,14 +80,14 @@ public class BranchListDB extends CSVFileReader {
 			al.add(branchData);
 			// write Branch record/s to file.
 			BranchListDB.saveBranch(al);
-            }catch (IOException e) {
-                System.out.println("IOException > " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("IOException > " + e.getMessage());
 		}
 	}
 
 
 
-public static void main(String[] aArgs)  {
+	public static void main(String[] aArgs)  {
 		//BranchListDB txtDB = new BranchListDB();
 
 		try {
@@ -94,8 +98,8 @@ public static void main(String[] aArgs)  {
 
 			BranchListDB.appendBranch("newname", "newLocation", 10); // append containing Branch records.
 			
-            }catch (IOException e) {
-                System.out.println("IOException > " + e.getMessage());
+        }catch (IOException e) {
+            System.out.println("IOException > " + e.getMessage());
 		}
-  }
+	}
 }
