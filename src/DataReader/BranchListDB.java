@@ -59,7 +59,7 @@ public class BranchListDB extends CSVFileReader {
 	public static void printAllBranch() throws IOException {
 		try {
 			// read file containing Professor records.
-			ArrayList al = BranchListDB.readAllBranch() ;
+			ArrayList<BranchData> al = BranchListDB.readAllBranch() ;
 			for (int i = 0 ; i < al.size() ; i++) {
                 BranchData branchData = (BranchData)al.get(i);
                 System.out.print("Name: " + branchData.name );

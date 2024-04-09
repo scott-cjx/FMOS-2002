@@ -14,7 +14,9 @@ public class CSVFileReader {
     protected static final String MENUFILE = "menu.csv";
     protected static final String STAFFFILE = "staff_list.csv";
 
-    /** Read the contents of the given file. */
+    /** Read the contents of the given file. 
+	 * 	First line of csv file is names of the columns.
+	*/
   	public static List read(String fileName) throws IOException {
 	List data = new ArrayList();
     Scanner scanner = new Scanner(new FileInputStream(fileName));

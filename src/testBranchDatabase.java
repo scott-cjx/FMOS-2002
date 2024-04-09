@@ -10,6 +10,8 @@ public class testBranchDatabase {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Beginning Program");
+
+        /* TESTING READS [Read] */
         System.out.println("[1] Reading All Branch Data");
         System.out.println("");
 
@@ -35,8 +37,26 @@ public class testBranchDatabase {
         }
         
 
+        /* TESTING APPENDING */
+        System.out.println("[2] Append Branch");
+        System.out.println("");
 
+        // Example created branch
+        Branch branch = new Branch("DTE");
+        branch.setLocation("Downtown East");
+        branch.setStaffQuota(12);
 
+        // Appending branch to DataBase, then reading
+        try{
+            BranchListDB.appendBranch(branch.getBranchName(),branch.getLocation(),branch.getStaffQuota());
+
+            BranchListDB.printAllBranch();
+        } catch (IOException e){
+            System.out.println("IOException > " + e.getMessage());
+        }
+
+        /* TESTING APPENDING [Create] */
+        
 
 
         sc.close();
