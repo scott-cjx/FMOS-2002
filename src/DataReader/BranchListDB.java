@@ -1,3 +1,5 @@
+package DataReader;
+
 import java.io.IOException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -7,14 +9,12 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import DataReader.*;
-
 public class BranchListDB extends CSVFileReader {
 
 	protected static final String filename = "Database/branch_list.csv";
 
     // an example of reading
-	public static ArrayList readBranch() throws IOException {
+	public static ArrayList readAllBranch() throws IOException {
 		// read String from text file
 		ArrayList stringArray = (ArrayList)read(filename);
 		ArrayList alr = new ArrayList() ;// to store branch data
@@ -28,27 +28,25 @@ public class BranchListDB extends CSVFileReader {
 				String  location = star.nextToken().trim();	// second token
 				int  staffQuota = Integer.parseInt(star.nextToken().trim()); // third token
 				// create Branch object from file data
-				Branch branch = new Branch(name);
-				branch.setLocation(location);
-				branch.setStaffQuota(staffQuota);
-				alr.add(branch) ;
+				BranchData branchData = new BranchData(name, location, staffQuota);
+				alr.add(branchData) ;
 			}
 			return alr ;
 	}
 
     // an example of saving
     public static void saveBranch(List al) throws IOException {
-		List alw = new ArrayList() ;// to store Professors data
+		List alw = new ArrayList() ;// to store branch data
 
 		alw.add("Name,Location,Staff Quota");
         for (int i = 0 ; i < al.size() ; i++) {
-				Branch branch = (Branch)al.get(i);
+				BranchData branchData = (BranchData)al.get(i);
 				StringBuilder st =  new StringBuilder() ;
-				st.append(branch.getBranchName().trim());
+				st.append(branchData.name.trim());
 				st.append(SEPARATOR);
-				st.append(branch.getLocation().trim());
+				st.append(branchData.location.trim());
 				st.append(SEPARATOR);
-				st.append(branch.getStaffQuota());
+				st.append(branchData.staffQuota);
 				alw.add(st.toString()) ;
 			}
 			CSVFileReader.write(filename,alw);
@@ -57,34 +55,45 @@ public class BranchListDB extends CSVFileReader {
 	public static void printAllBranch() throws IOException {
 		try {
 			// read file containing Professor records.
-			ArrayList al = BranchListDB.readBranch() ;
+			ArrayList al = BranchListDB.readAllBranch() ;
 			for (int i = 0 ; i < al.size() ; i++) {
-                Branch branch = (Branch)al.get(i);
-                System.out.print("Name: " + branch.getBranchName() );
-                System.out.print("\tLocation: " + branch.getLocation() );
-				System.out.println("\tStaff Quota: " + branch.getStaffQuota() );
+                BranchData branchData = (BranchData)al.get(i);
+                System.out.print("Name: " + branchData.name );
+                System.out.print("\tLocation: " + branchData.location );
+				System.out.println("\tStaff Quota: " + branchData.staffQuota );
 			}
+		}catch (IOException e) {
+			System.out.println("IOException > " + e.getMessage());
+		}
+	}
+
+	public static void appendBranch(String name, String location, int staffQuota) throws IOException {
+		try {
+			// read file containing branch records.
+			ArrayList al = BranchListDB.readAllBranch();
+			BranchData branchData = new BranchData(name, location, staffQuota);
+			// al is an array list containing branch objs
+			al.add(branchData);
+			// write Branch record/s to file.
+			BranchListDB.saveBranch(al);
             }catch (IOException e) {
                 System.out.println("IOException > " + e.getMessage());
 		}
 	}
 
 
+
 public static void main(String[] aArgs)  {
 		//BranchListDB txtDB = new BranchListDB();
 
 		try {
-			// read file containing Professor records.
-			BranchListDB.printAllBranch();
+			
+			ArrayList al = BranchListDB.readAllBranch(); // retrieve list containing Professor records.
 
-			ArrayList al = BranchListDB.readBranch();
-			Branch branch = new Branch("newName");
-			branch.setLocation("newLocation");
-			branch.setStaffQuota(10);
-			// al is an array list containing brnach objs
-			al.add(branch);
-			// write Branch record/s to file.
-			BranchListDB.saveBranch(al);
+			BranchListDB.printAllBranch(); // print all Branch records.
+
+			BranchListDB.appendBranch("newname", "newLocation", 10); // append containing Branch records.
+			
             }catch (IOException e) {
                 System.out.println("IOException > " + e.getMessage());
 		}
