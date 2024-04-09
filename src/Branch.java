@@ -33,12 +33,40 @@ public class Branch {
     private final String branchName;
 
     /**
+     * max number of staff
+     */
+    private int staffQuota;
+
+    /**
+     * location of branch
+     */
+    private String location;
+
+    /**
      * Create a new branch
      * @param branchName name of branch
      */
     public Branch(String branchName) {
         this.branchName = branchName;
     }
+    
+
+    public int getStaffQuota() {
+        return staffQuota;
+    }
+
+    public void setStaffQuota(int staffQuota) {
+        this.staffQuota = staffQuota;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
 
     /**
      * get name of branch
